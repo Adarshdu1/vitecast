@@ -5,6 +5,8 @@ import WeatherInfo from "./components/WeatherInfo";
 import NavBar from "./components/NavBar";
 import Spinner from "./components/Spinner";
 import Footer from "./components/Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [search, setSearch] = useState("Varanasi");
   const [today, setToday] = useState(true);
@@ -22,13 +24,33 @@ function App() {
   };
   useEffect(() => {
     const fetchWeather = async () => {
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${
-          import.meta.env.VITE_API_KEY
-        }&units=metric `
-      );
-      const data = await res.json();
-      setWeatherData(data);
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${
+            import.meta.env.VITE_API_KEY
+          }&units=metric `
+        );
+        if (res.status === 404) {
+          throw new Error("Something went wrong!");
+        }
+        if (!res.ok) {
+          throw new Error("Something went wrong!");
+        }
+        const data = await res.json();
+        setWeatherData(data);
+      } catch (error) {
+        toast(error.message, {
+          position: "top-right",
+          autoClose: 2000,
+          icon: "🚫",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     };
     fetchWeather();
   }, [search]);
@@ -39,6 +61,7 @@ function App() {
         style={{ userSelect: "none" }}
         className="bg-[#F1F6F9] bg-opacity-50"
       >
+        <ToastContainer type="error" />
         {/* Navigation Bar */}
         <NavBar
           handleSearch={handleSearch}
