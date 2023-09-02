@@ -7,7 +7,7 @@ export default function Footer() {
         <p className="text-justify">
           All rights reserved <b>|</b> Copyright &copy; 2023
         </p>
-        <p>
+        <p className="whitespace-nowrap">
           Made using{" "}
           <a href="https://openweathermap.org/">
             <b>OpenWeatherAPI</b>

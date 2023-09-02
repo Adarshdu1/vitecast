@@ -26,10 +26,10 @@ export default function TodayHighlight({ weatherData }) {
     setSunset(weatherData.sys.sunset);
   }, [weatherData]);
   return (
-    <div className="my-10 mx-2 w-full">
+    <div className="my-10 sm:block flex flex-col items-center lg:mx-2 lg:pl-0 sm:pl-5 w-full">
       <h1 className="text-2xl font-semibold ">Today Highlight</h1>
 
-      <div className="mt-5 space-x-5 flex">
+      <div className="mt-5 lg:space-x-5 lg:flex xmd:grid xmd:grid-cols-3 xmd:gap-2 gap-5 grid grid-cols-2">
         <WindStatus wind={wind} city={city} country={country} />
         <SunriseSunset sunrise={sunrise} sunset={sunset} />
         <Humidity humidRate={humidity} />

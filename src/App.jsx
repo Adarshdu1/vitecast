@@ -5,6 +5,7 @@ import WeatherInfo from "./components/WeatherInfo";
 import NavBar from "./components/NavBar";
 import Spinner from "./components/Spinner";
 import Footer from "./components/Footer";
+import Location from "./components/Location";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [today, setToday] = useState(true);
   const [celcius, setCelcius] = useState(true);
   const [weatherData, setWeatherData] = useState(null);
+  const [position, setPosition] = useState(null);
 
   const handleSearch = (value) => {
     setSearch(value);
@@ -38,6 +40,7 @@ function App() {
         }
         const data = await res.json();
         setWeatherData(data);
+        setPosition([data.coord.lat, data.coord.lon]);
       } catch (error) {
         toast(error.message, {
           position: "top-right",
@@ -71,16 +74,22 @@ function App() {
         />
         {/* Main page */}
         {weatherData ? (
-          <div className="px-3 grid grid-cols-4 mt-[4px]     max-w-6xl mx-auto">
-            {/* Dashboard */}
-            <Dashboard weatherData={weatherData} isCelcius={celcius} />
-            {/* WeatherInfo */}
-            <WeatherInfo
-              weatherData={weatherData}
-              className="col-span-2"
-              isToday={today}
-              isCelsius={celcius}
-            />
+          <div className="">
+            <div className="px-3 grid xmd:grid-cols-4 sm:grid-cols-3 mt-[4px]  max-w-6xl mx-auto">
+              {/* Dashboard */}
+              <Dashboard weatherData={weatherData} isCelcius={celcius} />
+              {/* WeatherInfo */}
+              <WeatherInfo
+                weatherData={weatherData}
+                className="xmd:col-span-2"
+                isToday={today}
+                isCelsius={celcius}
+              />
+            </div>
+            {/* Location */}
+            <div className="px-3 mt-5 max-w-6xl mx-auto lg:hidden">
+              <Location position={position} city={search} />
+            </div>
           </div>
         ) : (
           <Spinner />

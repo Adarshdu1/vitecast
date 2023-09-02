@@ -123,7 +123,7 @@ export default function Dashboard({ weatherData, isCelcius }) {
       <div className="mt-5 flex justify-center">
         <hr className="border-slate-200 w-[250px]" />
       </div>
-      <div className="mt-5">
+      <div className="mt-5 flex flex-col justify-center items-center">
         <div className="flex justify-start items-center gap-4">
           <div className="">
             {id >= 200 && id <= 232 && (

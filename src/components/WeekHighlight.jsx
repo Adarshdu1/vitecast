@@ -42,11 +42,11 @@ export default function WeekHighlight({ weatherData, isCelcius }) {
     fetchWeather();
   }, [weatherData]);
   return (
-    <div className="my-10 mx-2 w-full">
+    <div className="my-10 sm:block flex flex-col items-center lg:mx-2 lg:pl-0 sm:pl-5 w-full">
       <ToastContainer type="error" />
       <h1 className="text-2xl font-semibold ">Week Highlight</h1>
       {newWeatherData && (
-        <div className="mt-5 space-x-5 flex">
+        <div className="mt-5 xlg:space-x-2 xlg:flex xmd:grid xmd:grid-cols-3 xmd:gap-4 grid grid-cols-2 gap-4">
           <DayOne weatherData={newWeatherData} isCelcius={isCelcius} />
           <DayTwo weatherData={newWeatherData} isCelcius={isCelcius} />
           <DayThree weatherData={newWeatherData} isCelcius={isCelcius} />

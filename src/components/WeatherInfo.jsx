@@ -15,14 +15,15 @@ export default function WeatherInfo({ weatherData, isToday, isCelsius }) {
     setToday(isToday);
   }, [weatherData, isToday]);
   return (
-    <div className="col-span-3">
+    <div className="xmd:col-span-3 sm:col-span-2">
       {today ? (
         <TodayHighlight weatherData={todayData} />
       ) : (
         <WeekHighlight weatherData={todayData} isCelcius={isCelsius} />
       )}
-
-      <Location position={position} city={city} />
+      <div className={`hidden ${today && "lg:block"}  xlg:block`}>
+        <Location position={position} city={city} />
+      </div>
     </div>
   );
 }

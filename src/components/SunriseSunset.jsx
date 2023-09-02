@@ -14,7 +14,7 @@ export default function SunriseSunset({ sunrise, sunset }) {
     minute: "2-digit",
   });
   return (
-    <div className="bg-white w-[200px] p-4 rounded-lg">
+    <div className="bg-white mob:w-[200px] p-4 rounded-lg">
       <h1 className="text-gray-500">Sunrise and Sunset</h1>
       <div className="flex items-center gap-3 mt-6">
         <BsFillArrowUpCircleFill className="text-4xl text-yellow-500" />

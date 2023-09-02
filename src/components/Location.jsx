@@ -9,7 +9,7 @@ export default function Location({ position, city }) {
     setPositionData(position);
   }, [position]);
   return (
-    <div className="mx-2 w-full">
+    <div className="mx-2 lg:mx-2 lg:pl-0 sm:pl-5 w-full">
       <h1 className="mb-5 text-2xl font-semibold ">Location Map</h1>
       {positionData && positionData === position ? (
         <MapContainer

@@ -16,7 +16,7 @@ export default function WindStatus({ wind, city, country }) {
     setCountryName(cntName ?? country);
   }, [wind, city, country]);
   return (
-    <div className="bg-white p-4 w-[200px] rounded-lg">
+    <div className="bg-white p-4 mob:w-[200px] rounded-lg">
       <h1 className="text-gray-500">Wind Status</h1>
       <div className="mt-6">
         <span className="text-5xl font-bold">{windSpeed} </span>

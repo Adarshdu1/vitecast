@@ -42,7 +42,7 @@ export default function DayFive({ weatherData, isCelcius }) {
     }
   }, [weatherData, isCelcius]);
   return (
-    <div className="bg-white w-[200px] p-4 rounded-lg">
+    <div className="bg-white w-[150px] mob:w-[200px] p-4 rounded-lg">
       <h1 className="text-center font-bold">{day}</h1>
       <div className="flex justify-center">
         {id >= 200 && id <= 232 && (

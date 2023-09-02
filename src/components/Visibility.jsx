@@ -24,7 +24,7 @@ export default function Visibility({ visible }) {
   }, [visible, visibility]);
 
   return (
-    <div className="bg-white p-4 w-[200px] rounded-lg">
+    <div className="bg-white p-4 mob:w-[200px] rounded-lg">
       <h1 className="text-gray-500">Visibility</h1>
       <div className="mt-6 flex space-x-10  items-center">
         <div className="whitespace-nowrap">
