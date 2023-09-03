@@ -25,7 +25,7 @@ export default function Humidity({ humidRate }) {
   return (
     <div className="bg-white mob:w-[200px] p-4 rounded-lg">
       <h1 className="text-gray-500">Humidity</h1>
-      <div className="mt-6 flex space-x-10  items-center">
+      <div className="mt-6 flex space-x-[2.4rem]  items-center">
         <div className="whitespace-nowrap">
           <span className="text-5xl font-bold">{humidity} </span>
           <span className="text-gray-500 text-xl">%</span>
