@@ -26,7 +26,7 @@ export default function Visibility({ visible }) {
   return (
     <div className="bg-white p-4 mob:w-[200px] rounded-lg">
       <h1 className="text-gray-500">Visibility</h1>
-      <div className="mt-6 flex space-x-5  items-center">
+      <div className="mt-6 flex space-x-2 mob:space-x-5  items-center">
         <div className="whitespace-nowrap">
           <span className="text-5xl font-bold">{visibility} </span>
           <span className="text-gray-500">km</span>

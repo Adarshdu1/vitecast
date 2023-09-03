@@ -123,7 +123,7 @@ export default function NavBar({ handleSearch, handleToday, handleCelcius }) {
                 />
               </Link>
             </div>
-            <div className="flex space-x-5 items-center">
+            <div className="flex space-x-3 mob:space-x-5 items-center">
               <div className="flex items-center border-slate-200 rounded-md border-2">
                 <button
                   aria-pressed={isToday}
